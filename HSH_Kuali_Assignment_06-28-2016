@@ -1,0 +1,76 @@
+/* Author:   Steve Hayden
+ * Program:  Elevator Simulator
+ * Date:     6/28/16
+*/
+
+Class ElevatorSimulator (main?)
+create a building with x floors and y elevators
+initialize state of all elevators (bottom floor)
+
+// Assumptions:
+// Have not incorporated user pressing a direction button when summoning an elevator,
+// user simply summons elevator and chooses floor to go to.
+
+// All elevators start at ground floor 
+
+// Each iteration = 1 user pressing button and each elevator moving 1 floor if needed
+// and determination is made whether movement is required
+continuous loop   
+  Randomize floor user is summoning elevator to (must be between 1 and # of floors)
+  Randomize "destination_floor" (must be between 1 and # of floors, if current floor then leave door open)
+  Iterate through elevators and determine nearest elevator going direction user desires, if so set  "requested_stop"
+  iterate through all elevators
+    if at "destination_floor" or at "destination_floor" report door opened and closed
+    go up/down one floor, change " current_floor" and report floor change
+    
+end loop
+
+
+Class Building
+number_of_floors
+number_of_elevators
+
+Actions/Methods
+
+
+Class Elevator
+Variables
+final int TRIPS_MAX = 100
+boolean in_use
+boolean elevator_occupied
+boolean door_opening
+boolean door_closing
+boolean occupied
+boolean going_up = true // false = going down
+int trips_made
+int floors_passed
+int current_floor
+int requested_stop
+int destination_floor
+
+
+Actions/Methods
+elevator_moving  # generates report
+changing_floor
+opening_door
+closing_door
+report_elev_movement  # generates report
+report_door_movement  # generates report
+
+
+
+classs User
+Variables
+int users_starting_floor
+int users_desired_floor
+
+Actions/Methods
+call_elevator
+choose_floor
+
+
+
+
+Initialization
+
+Elevator elev = new Elevator(
